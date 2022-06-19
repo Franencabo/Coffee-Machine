@@ -1,0 +1,12 @@
+type: code
+files:
+- name: main.js
+  visible: true
+  text: |-
+    function newRemove(array, index, n) {
+
+    }
+  learner_created: false
+feedback_link: https://hyperskill.org/learn/step/16372#comment
+status: Solved
+record: -1

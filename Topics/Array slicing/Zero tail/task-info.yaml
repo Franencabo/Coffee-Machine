@@ -1,0 +1,15 @@
+type: code
+files:
+- name: main.js
+  visible: true
+  text: |-
+    function removeTail(array) {
+
+    }
+  learner_created: false
+feedback_link: https://hyperskill.org/learn/step/16370#comment
+status: Solved
+feedback:
+  message: <html>Correct solution</html>
+  time: Thu, 09 Jun 2022 19:17:04 UTC
+record: -1

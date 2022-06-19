@@ -1,0 +1,12 @@
+type: code
+files:
+- name: main.js
+  visible: true
+  text: |-
+    function parentheses(string) {
+
+    }
+  learner_created: false
+feedback_link: https://hyperskill.org/learn/step/16371#comment
+status: Solved
+record: -1

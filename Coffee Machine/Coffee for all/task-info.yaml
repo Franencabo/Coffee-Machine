@@ -1,0 +1,29 @@
+type: remote_edu
+custom_name: stage3
+files:
+- name: main.js
+  visible: true
+  text: |
+    // Use "input()" to input a line from the user
+    // Use "input(str)" to print some text before requesting input
+    // You will need this in the following stages
+    const input = require('sync-input')
+
+    console.log(`Starting to make a coffee
+    Grinding coffee beans
+    Boiling water
+    Mixing boiled water with crushed coffee beans
+    Pouring coffee into the cup
+    Pouring some milk into the cup
+    Coffee is ready!`)
+  learner_created: false
+- name: tests.py
+  visible: false
+  learner_created: false
+feedback_link: https://hyperskill.org/learn/step/17038#comment
+check_profile: hyperskill_node_javascript
+status: Solved
+feedback:
+  message: <html>Correct solution</html>
+  time: Tue, 07 Jun 2022 18:56:39 UTC
+record: 3

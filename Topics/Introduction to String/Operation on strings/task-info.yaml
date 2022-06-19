@@ -1,0 +1,17 @@
+type: choice
+is_multiple_choice: false
+options:
+- text: Hello! world NaN
+- text: Hello!  world Hello!  worldHello!  world
+- text: NaN NaN
+- text: Hello! NaN
+files:
+- name: main.js
+  visible: true
+  text: |+
+    // You can experiment here, it won’t be checked
+
+  learner_created: false
+feedback_link: https://hyperskill.org/learn/step/17754#comment
+status: Solved
+record: -1

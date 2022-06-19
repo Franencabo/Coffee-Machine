@@ -1,0 +1,106 @@
+<h2>Array slicing</h2>
+<html>
+ <head></head>
+ <body>
+  <p>It's often necessary to add pieces of data to arrays and extract elements from them. You may also want to divide strings and merge arrays or strings together. Fortunately, JavaScript provides methods that make it simple to perform such operations. In this topic, you will learn how to use these tools to <strong style="font-size: inherit;">splice</strong>, <strong style="font-size: inherit;">split</strong>, and <strong style="font-size: inherit;">concatenate</strong> sequences.</p> 
+  <h5 id="the-splice-method">The splice method</h5> 
+  <p>You already know about <code class="language-javascript">slice()</code>. It returns a partial copy of an array based on the given index values. <code class="language-javascript">splice()</code> sounds similar, but don't let that confuse you — this method is a bit more complicated.</p> 
+  <p>The first argument is the index at which the array will start changing, and it's the only one that's mandatory. The second argument is the number of elements that will be removed. Then you can specify the items that will be added in place of the deleted ones. It's possible to insert a larger or smaller number of elements.</p> 
+  <p></p>
+  <div class="alert alert-warning">
+   <code class="language-javascript">splice()</code> changes the contents of the original array.
+  </div>
+  <p></p> 
+  <p>Let's look at some examples:</p> 
+  <pre><code class="language-javascript">let arr = ["one", "two", 3, "four", 5, 6, "seven", 8];
+arr.splice(3, 2);
+
+console.log(arr); // [ 'one', 'two', 3, 6, 'seven', 8 ]</code></pre> 
+  <p><code class="language-javascript">"four"</code> is in index position 3, so it's the first element to be deleted. <code class="language-javascript">5</code> is in index position 4 and is the second item to be removed.</p> 
+  <p>Now let's insert strings to replace these two elements:</p> 
+  <pre><code class="language-javascript">let arr = ["one", "two", 3, "four", 5, 6, "seven", 8];
+arr.splice(3, 2, "Here's", "Johnny!");
+
+console.log(arr); // [ 'one', 'two', 3, "Here's", 'Johnny!', 6, 'seven', 8 ]</code></pre> 
+  <p>If you just want to insert items without deleting anything, pass <code class="language-javascript">0</code> to the second parameter:</p> 
+  <pre><code class="language-javascript">let arr = ["one", "two", 3, "four", 5, 6, "seven", 8];
+arr.splice(1, 0, "Here's", "Johnny!");
+
+console.log(arr); // [ 'one', "Here's", 'Johnny!', 'two', 3, 'four', 5, 6, 'seven', 8 ]</code></pre> 
+  <p>When a single argument is provided, splice removes everything starting from the specified index:</p> 
+  <pre><code class="language-javascript">let arr = ["one", "two", 3, "four", 5, 6, "seven", 8];
+arr.splice(-3);
+
+console.log(arr); // [ 'one', 'two', 3, 'four', 5 ]</code></pre> 
+  <p>In addition to modifying the existing array, splice also returns an array containing the deleted elements:</p> 
+  <pre><code class="language-javascript">let arr = ["one", "two", 3, "four", 5, 6, "seven", 8];
+let newArr = arr.splice(-3);
+
+console.log(arr); // [ 'one', 'two', 3, 'four', 5 ]
+console.log(newArr); // [ 6, 'seven', 8 ]</code></pre> 
+  <h5 id="the-split-method">The split method</h5> 
+  <p>This method divides a string into pieces and places them in an array. The first parameter is a <strong>separator</strong>. <code class="language-javascript">split()</code> searches for this pattern and divides the string in each place that it's found. The second parameter limits the number of elements included in the array. Both parameters are optional.</p> 
+  <p>Consider the following example:</p> 
+  <pre><code class="language-javascript">let str = "one two three";
+let arr = str.split(" ");
+
+console.log(arr); // [ 'one', 'two', 'three' ]</code></pre> 
+  <p>Now let's limit ourselves to one element:</p> 
+  <pre><code class="language-javascript">let arr = str.split(" ", 1);
+
+console.log(arr); // [ 'one' ]</code></pre> 
+  <p>Split returns an array containing a single string if you don't specify any parameters:</p> 
+  <pre><code class="language-javascript">let arr = str.split();
+
+console.log(arr); // [ 'one two three' ]</code></pre> 
+  <p>To break up the string into an array of characters, use an empty separator:</p> 
+  <pre><code class="language-javascript">let arr = str.split("", 7);
+
+console.log(arr); // [ 'o', 'n', 'e', ' ', 't', 'w', 'o' ]</code></pre> 
+  <p></p>
+  <div class="alert alert--primary">
+   You can pass a 
+   <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions" rel="noopener noreferrer nofollow">regular expression</a> to the split method if you need greater flexibility when specifying separators.
+  </div>
+  <p></p> 
+  <h5 id="the-concat-method">The concat method</h5> 
+  <p>Okay, so we know how to splice and split. Now it's time to learn about merging arrays and strings with <code class="language-javascript">concat()</code>. This method returns a new sequence rather than altering the existing ones.</p> 
+  <p>One option is to call <code class="language-javascript">concat()</code> on a previously created array and pass the arrays that we wish to combine it with as arguments:</p> 
+  <pre><code class="language-javascript">let colors = ["red", "green", "blue"];
+let numbers = [1, 2, 3, 4, 5];
+let sounds = ["bark", "meow", "quack", "buzz"];
+let arr = colors.concat(numbers, sounds);
+
+console.log(arr); 
+// [ 'red', 'green', 'blue', 1, 2, 3, 4, 5, 'bark', 'meow', 'quack', 'buzz' ]</code></pre> 
+  <p>However, there is another way to achieve the same result:</p> 
+  <pre><code class="language-javascript">let colors = ["red", "green", "blue"];
+let numbers = [1, 2, 3, 4, 5];
+let sounds = ["bark", "meow", "quack", "buzz"];
+let arr = [].concat(colors, numbers, sounds);
+
+console.log(arr);
+// [ 'red', 'green', 'blue', 1, 2, 3, 4, 5, 'bark', 'meow', 'quack', 'buzz' ]</code></pre> 
+  <p>Here we've made an empty array and merged the three arrays with it.</p> 
+  <p>You can also concatenate arrays with individual elements:</p> 
+  <pre><code class="language-javascript">let colors = ["red", "green", "blue"];
+let arr = ["white"].concat(colors, "black");
+
+console.log(arr); // [ 'white', 'red', 'green', 'blue', 'black' ]</code></pre> 
+  <p>Strings can be glued together with <code class="language-javascript">concat()</code>, too:</p> 
+  <pre><code class="language-javascript">let color1 = "red";
+let color2 = "blue";
+console.log(color1.concat(" ", color2)); // red blue</code></pre> 
+  <p>And it's possible to join everything with an empty string as well:</p> 
+  <pre><code class="language-javascript">console.log("".concat("The", " ", "Thing")); // The Thing</code></pre> 
+  <p>As you can see below, this method can also convert non-string arguments into strings before concatenation:</p> 
+  <pre><code class="language-javascript">console.log("".concat(1, true)); // 1true</code></pre> 
+  <h5 id="conclusion">Conclusion</h5> 
+  <p>You learned about three methods in this topic:</p> 
+  <ul> 
+   <li><code class="language-javascript">splice()</code> removes and inserts data. It modifies the original array and returns an array containing any deleted items.</li> 
+   <li><code class="language-javascript">split()</code> divides a string and returns an array of the separated elements.</li> 
+   <li><code class="language-javascript">concat()</code> merges arrays or strings. It returns a new array or string containing the combined items.</li> 
+  </ul>
+ </body>
+</html>
